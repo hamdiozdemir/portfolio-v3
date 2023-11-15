@@ -5,6 +5,8 @@ ENV PYTHONUNBUFFERED 1
 
 COPY ./requirements.txt /tmp/requirements.txt
 COPY ./requirements.dev.txt /tmp/requirements.dev.txt
+COPY ./scripts /scripts
+COPY ./scripts/run.sh /scripts/run.sh
 COPY . /app
 
 WORKDIR /app
