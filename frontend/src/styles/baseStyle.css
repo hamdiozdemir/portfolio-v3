@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&family=Edu+TAS+Beginner:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=Roboto+Slab:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --com-width: calc(80px + 10vw);
+  --com-height: calc(35px + 10vw);
+}
+
+#root{
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+}
+.App{
+  background: rgb(92,17,93);
+  background: -moz-linear-gradient(135deg, rgba(92,17,93,1) 29%, rgba(35,11,80,1) 100%);
+  background: -webkit-linear-gradient(135deg, rgba(92,17,93,1) 29%, rgba(35,11,80,1) 100%);
+  background: linear-gradient(135deg, rgba(92,17,93,1) 29%, rgba(35,11,80,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5c115d",endColorstr="#230b50",GradientType=1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Slab', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.font-roboto{
+  font-family: 'Roboto Slab', serif;
+}
+.font-edu-tas{
+  font-family: 'Edu TAS Beginner', cursive;
+}
+.font-jet-brains{
+  font-family: 'JetBrains Mono', monospace;
+}
+
+
+
+/* *********** FLEX BOX ************** */
+
+
+.flex-center-column{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flex-column{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flex-column-basic{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.page{
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* height: 100vh; */
+}
+
+.home-container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 10vw 10vw 10vw;
+
+
+}
+
+.home-bg{
+  position: absolute;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding: 50px 0;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  background: #f0f4f6;
+}
+
+.overFlowHidden{
+    overflow: hidden;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.w24{
+    width: 24%;
+  }
+.w18{
+  width: 18%;
+}
+.w36{
+  width: 36%;
+}
+.w45{
+  width: 45%;
+}
+
+
+.mt10{
+  margin-top: 6px;
+}
+.m-5{
+    margin: 5px;
+}
+
+
+  /* ************** COLORS ***************** */
+.color-dark{
+  color: #2E3B55;
+}
+.color-white{
+  color: rgb(191, 191, 191);
+}
+.bg-orange{
+  background: rgb(251, 183, 57);
+}
+.bg-red{
+  background: red;
+}
+.bg-green{
+  background: green;
+}
+.bg-purple{
+  background: purple;
+}
+.bg-blue{
+  background: rgb(78, 78, 255);
+}
+.bg-lblue{
+  background: rgb(100, 151, 169);
+}
+
+.bg-green{
+  background: green;
+}
+.bg-white{
+  background: white;
+}
+.bg-red{
+  background: red;
+}
+.bg-gray{
+  background: rgb(138, 138, 138);
+}
+
+
+/* ***************** FONTS ***************** */
+
+
+.font-mini{
+  font-size: 0.1em;
+}
+
+.font-11{
+  font-size: 11px !important;
+}
+.font-12{
+  font-size: 12px !important;
+}
+.font-14{
+  font-size: 14px !important;
+}
+.font-16{
+  font-size: 16px !important;
+}
+
+.font-large{
+    font-size:calc(12px + 3vw);
+    font-weight: 600;
+}
+
+
+
+
+.hide{
+  display: none;
+}
+
+.show{
+  display: block;
+}
+
+
+
+/* ****************** STACK EXPANDS *********************** */
+
+.hidden-stack{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+  
+  .hidden-stack.checked{
+    display: block;
+    transform: translateY(-20%);
+  }
+  

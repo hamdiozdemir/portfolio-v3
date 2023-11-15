@@ -1,0 +1,375 @@
+
+/* ******************* Stack CARDS ***************** */
+
+.flex-wrap{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 1vw;
+}
+
+.card-container{
+  width: calc(50% - 1vw);
+  height: 150px;
+  perspective: 1000px;
+  box-sizing: border-box;
+
+}
+
+/* .full-stack{
+  width: 100%;
+  font-weight: 700;
+  border-radius: 2rem;
+} */
+
+.card{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 1100ms;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 2rem;
+
+}
+
+
+
+
+.card-front,
+.card-back{
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+  box-shadow: 0 0 5px 2px rgba(50,50,50,0.25);
+  position: absolute;
+  backface-visibility: hidden;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 5px;
+}
+
+.card-front{
+  font-size: calc(16px + 2vw);
+}
+
+.card-back{
+  background-color: rgb(229, 221, 221);
+  transform: rotateX(180deg);
+}
+
+.frontend:hover{
+  background-color: yellow;
+}
+.backend:hover{
+  background-color: green;
+  color: white;
+}
+.full-stack:hover{
+  background-color: rgb(45, 45, 45);
+  color: white;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 1.5s, transform 1.5s;
+}
+
+.fade-in.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+/* ********* COMPUTER ***************** */
+
+.computer-container{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.computer-screen{
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  width: var(--com-width);
+  height: var(--com-height);
+  border: 8px black solid;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.com-background{
+  background: rgb(63, 63, 63);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.line-container{
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 5px;
+  column-gap: 2vw;
+  overflow: hidden;
+  padding: 5px;
+  transform: translateY(0%);
+
+}
+
+
+
+.dot-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 1vw;
+  width: 1vw;
+  border-radius: 50%;
+  transition: ease-in 0.2s;
+}
+
+.dot-content:hover{
+  transform: scale(1.2);
+}
+
+.line-content{
+  height: 0.8vw;
+  max-height: 9px;
+  border-radius: 10px;
+  left: 0;
+  transform-origin: 0%;
+  filter: grayscale(30%);
+  opacity: 0.8;
+}
+
+
+
+
+.computer-bottom1{
+  background: black;
+  border-radius: 10px;
+  height: 10px;
+  width: 50%;
+  
+}
+.computer-bottom2{
+  background: black;
+  height: 20px;
+  width: 10%;
+  
+}
+
+.mouse{
+  height: 3vw;
+  display: inline;
+  transition: 0.1s linear;
+  z-index: 5;
+}
+
+.server{
+  height: 5vh;
+}
+
+
+/* *********** PROJECTS ***************** */
+
+.project-card-container{
+  width: 200px;
+  height: 300px;
+  perspective: 1000px;
+  box-sizing: border-box;
+
+}
+
+.project-card{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 1100ms;
+  transform-style: preserve-3d;
+  /* cursor: pointer; */
+  text-align: center;
+  border-radius: 20px;
+}
+
+.project-card-container:hover .project-card{
+  /* cursor: pointer; */
+  transform: rotateY(180deg);
+}
+
+.card-back2{
+  transform: rotateY(180deg);
+  /* backface-visibility: hidden; */
+  display: flex;
+  flex-direction: column;
+  z-index: 101;
+  background:linear-gradient( to bottom, #bcc6cc, #eee, #bcc6cc);
+}
+
+
+.card-cover{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgb(73,72,72);
+  background: -moz-linear-gradient(135deg, rgba(73,72,72,1) 0%, rgba(20,20,20,1) 100%);
+  background: -webkit-linear-gradient(135deg, rgba(73,72,72,1) 0%, rgba(20,20,20,1) 100%);
+  background: linear-gradient(135deg, rgba(73,72,72,1) 0%, rgba(20,20,20,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#494848",endColorstr="#141414",GradientType=1);
+  box-sizing: border-box;
+  border-radius: 20px;
+  color: white;
+  font-family: 'JetBrains Mono', monospace;
+  transition: transform 600ms ease-in-out;
+  z-index: 100;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.base-card:hover > .card-cover{
+  transform: translateY(-90%);
+}
+
+.card-text{
+  width: 90%;
+  padding: 5px;
+  text-align: center;
+  /* background: rgba(255, 255, 255, 0.25); */
+  border-radius: 10px;
+  z-index: 10;
+  font-size: 0.4em;
+  margin-top: 10%;
+  height: max-content;
+}
+
+.sub-card-text{
+  width: 90%;
+  padding: 5px;
+  text-align: center;
+  /* background: rgba(255, 255, 255, 0.25); */
+  border-radius: 10px;
+  z-index: 10;
+  font-size: 0.3em;
+  margin:auto 0 10% 0;
+  height: max-content;
+}
+
+.card-logo-container{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+
+}
+.card-logo{
+  min-width: 60px;
+  width: 40%;
+  height: auto;
+  animation: grayscaleAnimation 5s linear infinite;
+  /* transition: 3s ease-in-out; */
+}
+
+.tech-icon-container{
+  color: rgba(20,20,20,0);
+  transition: 0.3s ease-in;
+  width: 40px;
+}
+
+.tech-icon{
+  height: 40px;
+  transition: 0.3s ease-in;
+}
+.tech-icon-container:hover{
+  /* transform: rotate(20deg); */
+  transform: translateY(-10px);
+}
+.tech-icon-container:hover{
+  color: black;
+}
+
+
+@media (max-width: 768px) {
+  .flex-wrap{
+    flex-direction: column;
+    gap: 15px;
+  }
+  .card-container{
+    width: 100%;
+    height: 100px;
+  }
+  .project-card-container{
+    width: 150px;
+    height: 200px;
+  }
+  .tech-icon-container{
+    width: 30px;
+  }
+  .tech-icon{
+    height: 30px;
+  }
+}
+
+@media (max-width: 612px) {
+  .tech-icon{
+    height: 25px;
+  }
+  .tech-icon-container{
+    width: 25px;
+  }
+}
+
+
+@keyframes grayscaleAnimation {
+  0% {
+    filter: grayscale(100%);
+
+  }
+  10% {
+    filter: grayscale(80%);
+ 
+  }
+  20% {
+    filter: grayscale(60%);
+  }
+  30% {
+    filter: grayscale(40%);
+  }
+  40% {
+    filter: grayscale(40%);
+  }
+  50% {
+    filter: grayscale(20%);
+  }
+  60% {
+    filter: grayscale(40%);
+  }
+  70% {
+    filter: grayscale(60%);
+  }
+  80% {
+    filter: grayscale(80%);
+  }
+  90% {
+    filter: grayscale(100%);
+  }
+  100% {
+    filter: grayscale(100%);
+  }
+}

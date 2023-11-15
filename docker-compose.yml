@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  backend:
+    volumes:
+      - dev-static-data:/vol/web
+    env_file:
+      - .env
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+  frontend:
+    build:
+      context: ./frontend
+    volumes:
+      - frontend:/app/build
+  nginx:
+    build:
+      context: ./nginx
+    volumes:
+      - dev-static-data:/vol/web
+      - frontend:/var/www/frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+      - frontend
+volumes:
+  dev-static-data:
+  frontend:
