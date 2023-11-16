@@ -56,6 +56,8 @@ const Projects = () => {
             <h1 className="color-white">
                 PROJECTS SAMPLES
             </h1>
+
+            <Computer />
             
             <br />
             <Box

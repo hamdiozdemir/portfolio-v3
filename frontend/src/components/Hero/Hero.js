@@ -22,8 +22,7 @@ import empty4 from '../../assests/shop/empty4.png';
 
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
-import { useEffect, useState } from 'react';
-import Computer from '../Home/Computer';
+import { useState } from 'react';
 import clsx from 'clsx';
 
 const Hero = ({data, loading, error}) => {

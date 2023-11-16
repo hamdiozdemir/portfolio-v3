@@ -6,6 +6,7 @@ from django.db import models
 import os
 import uuid
 
+
 def skill_image_file_path(instance, filename):
     """Generate file path for new recipe image."""
     ext = os.path.splitext(filename)[1]
@@ -34,7 +35,9 @@ class Skills(models.Model):
     image = models.ImageField(null=True, upload_to=skill_image_file_path)
     level = models.IntegerField()
     description = models.TextField(blank=True)
-    category = models.ForeignKey(TechCategory, on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(TechCategory,
+                                 on_delete=models.SET_NULL,
+                                 null=True)
 
     def __str__(self):
         return self.name
@@ -61,10 +64,3 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.name
-
-
-
-
-
-
-

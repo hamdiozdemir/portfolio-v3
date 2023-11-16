@@ -1,55 +1,11 @@
-import React, { useState, useEffect } from 'react';
 import Projects from './Projects';
 import Hero from '../Hero/Hero';
 import Contact from '../Contact/Contact';
 import About from './About';
-import { useGet } from '../../utils/utils';
 import useFetchData from '../../utils/useFetchData';
 
 const Home = () => {
 
-    const mockData = [
-
-      {
-        "id": 1,
-        "category": "frontend",
-        "techs": [
-          {
-            "id": 1,
-            "name": "html"
-          },
-          {
-            "id": 2,
-            "name": 'css'
-          },
-          {
-            "id": 3,
-            "name": 'react'
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "category": "backend",
-        "techs": [
-          {
-            "id": 1,
-            "name": "flask"
-          },{
-            "id": 2,
-            "name": "django"
-          },
-          {
-            "id": 3,
-            "name": "postgres"
-          },
-          {
-            "id": 4,
-            "name": "celery"
-          }
-        ]
-      }
-    ];
     const mockPersonal = [{
       "id": 1,
       "description": "Experienced Python Developer in frontend and backend. Simply create web applications & APIs with passion.",

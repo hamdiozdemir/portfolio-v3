@@ -87,7 +87,7 @@
 .vsc-top{
     width: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 3px;
     padding: 3px;
     height: 15%;

@@ -1,10 +1,8 @@
 // style
 import '../../styles/computer.css';
+import React, { useState } from 'react';
 
-import React, { useState, useEffect } from 'react';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-
+// assets
 import laptop2 from '../../assests/shop/laptop2.png';
 import vsc from '../../assests/shop/vsc.png';
 import windows from '../../assests/shop/windows.jpg';

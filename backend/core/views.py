@@ -3,8 +3,7 @@ Views for general purposes.
 """
 
 
-from django.shortcuts import render
-from rest_framework import viewsets, generics
+from rest_framework import viewsets
 from .models import Profile
 from .serializers import ProfileSerializer
 

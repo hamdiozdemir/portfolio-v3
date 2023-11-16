@@ -9,7 +9,6 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { handleExternalLink } from '../../utils/utils';
 
