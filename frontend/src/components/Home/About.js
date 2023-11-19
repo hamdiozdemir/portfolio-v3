@@ -15,8 +15,6 @@ const About = ({data, loading, error }) => {
     return (
         <section className="home-container color-white">
             {data && (
-                
-                
                 <div>
                 {data.map((item) => (
                     <div  className="flex-center-column" key={item.id}>

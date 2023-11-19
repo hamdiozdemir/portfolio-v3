@@ -66,6 +66,11 @@ code {
     display: flex;
     flex-direction: column;
 }
+.flex-row-wrap{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
 
 .page{
@@ -122,12 +127,15 @@ code {
 
 
 .mt10{
-  margin-top: 6px;
+  margin-top: 10px;
 }
 .m-5{
     margin: 5px;
 }
 
+.heightFull{
+  min-height: 100vh;
+}
 
   /* ************** COLORS ***************** */
 .color-dark{
@@ -193,6 +201,10 @@ code {
     font-size:calc(12px + 3vw);
     font-weight: 600;
 }
+.font-medium{
+    font-size:calc(12px + 2vw);
+    font-weight: 500;
+}
 
 
 
@@ -221,3 +233,29 @@ code {
     transform: translateY(-20%);
   }
   
+/* ******* ANIMATIONS *0******** */
+
+
+
+.bottomUp-1{
+  animation: bottomUpBasic 600ms ease-out;
+}
+.bottomUp-2{
+  animation: bottomUpBasic 900ms ease-out;
+}
+.bottomUp-3{
+  animation: bottomUpBasic 1200ms ease-out;
+}
+.bottomUp-4{
+  animation: bottomUpBasic 1500ms ease-out;
+}
+
+
+@keyframes bottomUpBasic {
+  from {
+      transform: translateY(50%);
+  }
+  to {
+      transform: translateY(0%);
+  }
+}

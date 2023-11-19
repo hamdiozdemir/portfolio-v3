@@ -1,3 +1,4 @@
+// assets
 import html from '../../assests/shop/html.png';
 import css from '../../assests/shop/css.png';
 import javascript from '../../assests/shop/javascript.png';
@@ -15,15 +16,21 @@ import pandas from '../../assests/shop/pandas.png';
 import postgres from '../../assests/shop/postgres.png';
 import python from '../../assests/shop/python.png';
 import rabbitmq from '../../assests/shop/rabbitmq.png';
+import sqla from '../../assests/shop/sqla.png';
+import restapi from '../../assests/shop/restapi.png';
+import git from '../../assests/shop/git.png';
 import empty1 from '../../assests/shop/empty1.png';
 import empty2 from '../../assests/shop/empty2.png';
 import empty3 from '../../assests/shop/empty3.png';
 import empty4 from '../../assests/shop/empty4.png';
-
+// MUI
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
+//utils
 import { useState } from 'react';
 import clsx from 'clsx';
+// components
+import CustomButton from '../MyButtons/CustomButton';
 
 const Hero = ({data, loading, error}) => {
 
@@ -77,7 +84,8 @@ const Hero = ({data, loading, error}) => {
         <>
         <header id="shop-header">
             <nav id="shop-nav">   
-
+                <CustomButton text={'HELLO'} />
+            
             </nav>
         </header>
 
@@ -96,20 +104,22 @@ const Hero = ({data, loading, error}) => {
                         <img src={empty2} alt="" className={emptyAnimationClass} />
                         <img src={database} alt="" className={backendAnimationClass}  />
                         <img src={fastapi} alt="" className={backendAnimationClass}  />
-                        <img src={testing} alt="" className={backendAnimationClass}  />
+                        <img src={testing} alt="" className={emptyAnimationClass}  />
                         <img src={reactjs} alt="" className={frontendAnimationClass} />
                         <img src={flask} alt="" className={backendAnimationClass}  />
                         <img src={empty1} alt="" className={emptyAnimationClass} />
+                        <img src={restapi} alt="" className={backendAnimationClass} />
                     </Box>
 
                     <Box
                     className='sub-line line3'
                     >
                         <img src={empty4} alt="" className={emptyAnimationClass} />
-                        <img src={flask} alt="" className={backendAnimationClass}  />
+                        <img src={sqla} alt="" className={backendAnimationClass}  />
                         <img src={css} alt="" className={frontendAnimationClass} />
                         <img src={rabbitmq} alt="" className={backendAnimationClass}  />
                         <img src={docker} alt="" className={backendAnimationClass}  />
+                        <img src={git} alt="" className={`${emptyAnimationClass} fs` } />
                         <img src={pandas} alt="" className={backendAnimationClass}  />
                         <img src={empty3} alt="" className={emptyAnimationClass} />
                         <img src={django} alt="" className={backendAnimationClass}  />
@@ -118,13 +128,12 @@ const Hero = ({data, loading, error}) => {
                     <Box 
                     className='sub-line line5'
                     >
-                        <img src={javascript} alt="" className={frontendAnimationClass} />
+                        <img src={postgres} alt="" className={backendAnimationClass}  />
                         <img src={cloud} alt="" className={emptyAnimationClass} />
                         <img src={celery} alt="" className={backendAnimationClass}  />
-                        <img src={postgres} alt="" className={backendAnimationClass}  />
+                        <img src={javascript} alt="" className={frontendAnimationClass} />
                         <img src={python} alt="" className={backendAnimationClass}  />
-                        
-                        
+                        <img src={empty2} alt="" className={emptyAnimationClass}  />
                     </Box>
 
                 <Box

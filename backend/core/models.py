@@ -43,12 +43,21 @@ class Skills(models.Model):
         return self.name
 
 
+class Image(models.Model):
+    image = models.ImageField(null=True, upload_to=skill_image_file_path)
+    text = models.CharField(max_length=100, default='Image')
+
+    def __str__(self):
+        return self.text
+
+
 class Projects(models.Model):
     title = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
     github = models.CharField(max_length=255, blank=True, null=True)
     link = models.CharField(max_length=255, blank=True, null=True)
     skills = models.ManyToManyField(Skills, blank=True)
+    images = models.ManyToManyField(Image, null=True)
 
     def __str__(self):
         return self.title
@@ -64,3 +73,32 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Visitor(models.Model):
+    """Model for saving ananymous visitors."""
+    uid = models.UUIDField(default=uuid.uuid4, auto_created=True)
+    lang = models.CharField(max_length=10, default='ERROR')
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.id}: {self.lang}"
+
+
+class ContactForm(models.Model):
+    timestamp = models.DateTimeField(auto_now_add=True)
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    message = models.TextField()
+    visitor = models.ForeignKey(Visitor,
+                                null=True,
+                                on_delete=models.SET_NULL)
+
+
+class BrowseHistory(models.Model):
+    """Model for recording the visitors browse history on page."""
+    visitor = models.ForeignKey(Visitor,
+                                null=True,
+                                on_delete=models.SET_NULL)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    action = models.CharField(max_length=255)

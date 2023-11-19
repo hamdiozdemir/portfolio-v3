@@ -1,3 +1,4 @@
+// MUI
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Switch from '@mui/material/Switch';
@@ -9,17 +10,31 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+// utils
 import { useEffect, useState } from 'react';
 import { handleExternalLink } from '../../utils/utils';
+import { send_message } from '../../utils/actions';
+import { useDispatch, useSelector } from 'react-redux';
 
-const Contact = (props) => {
-    const [isEmailValid, setIsEmailValid] = useState(false);
-    const [isTyping, setIsTyping] = useState(false);
+import * as React from 'react';
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
+
+const Contact = ({data, loading, error }) => {
+    const dispatch = useDispatch();
     const [contactData, setContactData] = useState({
         name: '',
         email: '',
-        message: ''
+        message: '',
+        visitor: useSelector((state) => state.visitor.uid)
     });
+
+
+    const [isEmailValid, setIsEmailValid] = useState(false);
+    const [isTyping, setIsTyping] = useState(false);
     const [replaceMessage, setReplaceMessage] = useState('');
     const [isFake, setIsFake] = useState(true);
 
@@ -33,7 +48,31 @@ const Contact = (props) => {
           );
       };
 
-      const { contacts } = props.mockPersonal;
+    const [ snackBarOpen, setSnackBarOpen ] = useState('');
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+    
+        setSnackBarOpen('');
+      };
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+
+        if (isEmailValid) {
+            const { name, email, message, visitor } = contactData;
+            dispatch(send_message(name, email, message, visitor)).then(
+                console.log("Message has sent.")
+            )
+            .then(
+                setContactData({...contactData, name: '', email: '', message: ''})
+            )
+            .then(setSnackBarOpen('success'))
+        } else {
+            setSnackBarOpen('error');
+        }
+
+    };
 
       useEffect(() => {
         if (isFake) {
@@ -43,6 +82,7 @@ const Contact = (props) => {
         }
         
       }, [fakeMessage, contactData.message, isFake])
+
 
 
     return (
@@ -69,7 +109,7 @@ const Contact = (props) => {
                     
                     
                 }}
-                noValidate
+
                 autoComplete="off"
             >
                 <TextField
@@ -130,7 +170,7 @@ const Contact = (props) => {
                     label="Disable that joke!"
                 />
 
-                <Button variant="contained" endIcon={<SendIcon />}>
+                <Button variant="contained" endIcon={<SendIcon />} onClick={handleFormSubmit}>
                     Send
                 </Button>
 
@@ -151,41 +191,57 @@ const Contact = (props) => {
                 
             }}
             >
+                {data && 
                 <IconButton aria-label='link' 
                     onClick={(e) => {
-                    window.location.href = `mailto:${contacts.email}`;
+                    window.location.href = `mailto:${data[0].contacts[0].email}`;
                     e.preventDefault();
                 }}>
                     <EmailIcon fontSize="large" 
                         sx={{color: '#fff'}} />
 
-                </IconButton>
+                </IconButton>}
                 
 
                 <MoreHorizIcon  sx={{color: '#fff'}} />
 
+                {data && 
                 <IconButton aria-label='link' 
                     onClick={() => 
-                        handleExternalLink(contacts[0].linkedin)
+                        handleExternalLink(data[0].contacts[0].linkedin)
                     }
                 >
                     <LinkedInIcon fontSize="large" 
                     sx={{color: '#fff'}} 
                     />
 
-                </IconButton>
+                </IconButton>}
+
                 <MoreHorizIcon  sx={{color: '#fff'}} />
 
 
-                <IconButton aria-label='link' 
+                {data &&
+                    <IconButton aria-label='link' 
                     onClick={() => 
-                        handleExternalLink()
+                        handleExternalLink(data[0].contacts[0].github)
                     }>
                     <GitHubIcon fontSize="large" sx={{color: '#fff'}} />
-                </IconButton>
+                </IconButton>}
 
 
             </Box>
+
+            <Snackbar open={(snackBarOpen === 'success')} autoHideDuration={6000} onClose={handleClose}>
+                <Alert severity="success" sx={{ width: '100%' }} onClose={handleClose}>
+                Your message is sent. Thank you.
+                </Alert>
+            </Snackbar>
+
+            <Snackbar open={(snackBarOpen === 'error')} autoHideDuration={6000} onClose={handleClose}>
+                <Alert severity="error" sx={{ width: '100%' }} onClose={handleClose}>
+                    Invalid input. Please make sure your inputs are correct.
+                </Alert>
+            </Snackbar>
 
 
         </section>

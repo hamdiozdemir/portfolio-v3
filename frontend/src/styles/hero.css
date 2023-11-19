@@ -15,7 +15,7 @@
 #shop-header{
     position: absolute;
     width: 100%;
-    height: 8vh;
+    height: 10vh;
     /* border-bottom: 1px rgb(223, 217, 217, 0.3) solid; */
     margin: 0;
     padding: 0;
@@ -33,6 +33,9 @@ nav{
 
 #shop-nav{
     position: absolute;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
     width: 100%;
     height: 10vh;
     box-sizing: border-box;
@@ -54,7 +57,7 @@ nav{
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: 10vh;
+    margin-top: calc(10vh + 1.5vw);
     justify-content: center;
 }
 .text-layer{
@@ -82,8 +85,8 @@ nav{
     filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.3));
     transition: all 1s ease-in-out;
     z-index: 9999;
-    animation: waves2 3000ms linear infinite;
-    opacity: 0.9;
+    animation: waves2 2000ms linear infinite;
+    opacity: 1;
 }
 .hexagon:hover{
     filter: grayscale(0%) hue-rotate(90deg);
@@ -105,7 +108,6 @@ nav{
 
 .sub-line{
     display: flex;
-    
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -115,10 +117,10 @@ nav{
 }
 
 .be{
-    animation-delay: 200ms;
+    animation-delay: 600ms;
 }
 .fe{
-    animation-delay: 1000ms;
+    animation-delay: 1500ms;
 }
 .em{
     animation-delay: 1300ms;
@@ -273,28 +275,28 @@ nav{
   }
 @keyframes waves2 {
     0% {
-      filter: grayscale(70%) brightness(100%);
-      opacity: 0.8;
+      filter: brightness(100%);
+      /* opacity: 0.8; */
     }
     10% {
-        filter: grayscale(35%)  brightness(110%);
-        opacity: 0.9;
+        filter:  brightness(110%);
+        /* opacity: 0.9; */
     }
     20% {
-        filter: grayscale(0%)  brightness(120%);
+        filter:  brightness(140%);
         opacity: 1;
     }
     30% {
-        filter: grayscale(0%)  brightness(120%);
+        filter:  brightness(140%);
         opacity: 1;
     }
     40% {
-        filter: grayscale(35%)  brightness(110%);
-        opacity: 0.9;
+        filter:  brightness(110%);
+        /* opacity: 0.9; */
     }
     100% {
-        filter: grayscale(70%)  brightness(100%);
-        opacity: 0.8;
+        filter:  brightness(100%);
+        /* opacity: 0.8; */
     }
   }
 

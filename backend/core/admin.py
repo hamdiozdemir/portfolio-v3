@@ -5,7 +5,11 @@ from .models import (
     Contact,
     TechCategory,
     Projects,
-    Skills
+    Skills,
+    Image,
+    Visitor,
+    BrowseHistory,
+    ContactForm
 )
 
 admin.site.register(Profile)
@@ -13,3 +17,7 @@ admin.site.register(Contact)
 admin.site.register(TechCategory)
 admin.site.register(Projects)
 admin.site.register(Skills)
+admin.site.register(Image)
+admin.site.register(Visitor)
+admin.site.register(BrowseHistory)
+admin.site.register(ContactForm)

@@ -1,27 +1,27 @@
+// components
 import Projects from './Projects';
 import Hero from '../Hero/Hero';
 import Contact from '../Contact/Contact';
 import About from './About';
+// utils
 import useFetchData from '../../utils/useFetchData';
+import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { new_user } from '../../utils/actions';
 
 const Home = () => {
-
-    const mockPersonal = [{
-      "id": 1,
-      "description": "Experienced Python Developer in frontend and backend. Simply create web applications & APIs with passion.",
-      "contacts": [
-          {
-          "id": 1,
-          "website": "http://hamdiozdemir.tech",
-          "linkedin": "https://www.linkedin.com/in/hamdi-%C3%B6zdemir-67a084201/",
-          "github": "https://github.com/hamdiozdemir/",
-          "email": "hamdiozdemir61@gmail.com",
-          "phone": ""
-        }
-
-      ]
-    }];
-
+    const { t, i18n } = useTranslation();
+    const visitor = i18n.language;
+    const dispatch = useDispatch();
+    
+    useEffect(() => {
+      if (!localStorage.getItem('visitor') && !localStorage.getItem('lang')) {
+        dispatch(new_user(visitor));
+      };
+      
+    }, [dispatch, visitor]);
+  
 
     const {data, loading, error } = useFetchData('profile');
 
@@ -29,16 +29,12 @@ const Home = () => {
         <>
         <Hero data={data} loading={loading} error={error} />
            
-
           <Projects />
 
           <About data={data} loading={loading} error={error} />
 
-
-          <Contact mockPersonal={mockPersonal[0]} />
+          <Contact data={data} loading={loading} error={error} />
         </>
-
-
     );
 }
  
