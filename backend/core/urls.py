@@ -22,6 +22,6 @@ urlpatterns = [
     path('visitors/', VisitorView.as_view(), name='visitors'),
     path('contact-form/',
          ContactFormCreateView.as_view(), name='contact-form'),
-    path('browse-history',
+    path('browse-history/',
          BrowseHistoryCreateView.as_view(), name='browse-history')
 ]

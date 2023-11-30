@@ -33,6 +33,23 @@ export const send_message = (name, email, message, visitor) => async dispatch =>
 
     try {
         const response = await axios.post(`${rootUrl}/contact-form/`, body, config);
+        console.log(body);
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+
+export const add_browse_history = (action, visitor) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+    const body = JSON.stringify({action, visitor});
+
+    try {
+        const response = await axios.post(`${rootUrl}/browse-history/`, body, config);
     } catch (err) {
         console.log(err);
     }

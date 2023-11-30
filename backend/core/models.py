@@ -92,6 +92,7 @@ class ContactForm(models.Model):
     message = models.TextField()
     visitor = models.ForeignKey(Visitor,
                                 null=True,
+                                blank=True,
                                 on_delete=models.SET_NULL)
 
 
@@ -99,6 +100,7 @@ class BrowseHistory(models.Model):
     """Model for recording the visitors browse history on page."""
     visitor = models.ForeignKey(Visitor,
                                 null=True,
+                                blank=True,
                                 on_delete=models.SET_NULL)
     timestamp = models.DateTimeField(auto_now_add=True)
     action = models.CharField(max_length=255)

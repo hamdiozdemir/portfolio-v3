@@ -46,7 +46,7 @@ class ProjectSerializer(serializers.ModelSerializer):
 class ProfileSerializer(serializers.ModelSerializer):
     """Serializer for genereal profile information."""
 
-    contacts = ContactSerializer(read_only=True, many=True, required=False)
+    contacts = ContactSerializer(read_only=True, many=True, required=False, allow_null=True)
 
     class Meta:
         model = Profile
@@ -63,7 +63,7 @@ class VisitorSerializer(serializers.ModelSerializer):
 
 class ContactFormSerializer(serializers.ModelSerializer):
     """ContactForm model serializers."""
-    visitor = serializers.CharField(max_length=255, required=False)
+    visitor = serializers.CharField(max_length=255, required=False, allow_null=True)
 
     class Meta:
         model = ContactForm

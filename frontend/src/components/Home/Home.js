@@ -18,6 +18,7 @@ const Home = () => {
     useEffect(() => {
       if (!localStorage.getItem('visitor') && !localStorage.getItem('lang')) {
         dispatch(new_user(visitor));
+        console.log('yeni user eklendi.')
       };
       
     }, [dispatch, visitor]);

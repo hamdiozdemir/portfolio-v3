@@ -318,7 +318,7 @@
     filter: drop-shadow(16px 16px 20px black);
 }
 .project-image:hover{
-    transform: scale(2) translateY(-25%);
+    transform: scale(1.2);
     z-index: 9999;
 }
 

@@ -15,10 +15,11 @@ import MuiAlert from '@mui/material/Alert';
 // utils
 import { useEffect, useState } from 'react';
 import { handleExternalLink } from '../../utils/utils';
-import { send_message } from '../../utils/actions';
+import { add_browse_history, send_message } from '../../utils/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 import * as React from 'react';
+import visitor from '../../redux/visitor';
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });
@@ -70,8 +71,8 @@ const Contact = ({data, loading, error }) => {
             .then(setSnackBarOpen('success'))
         } else {
             setSnackBarOpen('error');
-        }
-
+        };
+        dispatch(add_browse_history("Sent a new message with contact form", contactData.visitor));
     };
 
       useEffect(() => {
@@ -80,7 +81,7 @@ const Contact = ({data, loading, error }) => {
                 fakeMessage.slice(0, contactData.message.length)
             );
         }
-        
+       
       }, [fakeMessage, contactData.message, isFake])
 
 
