@@ -2,16 +2,21 @@
 Views for general purposes.
 """
 
-
 from rest_framework import viewsets, status, generics
 from rest_framework.response import Response
-from .models import Profile, Skills, Projects, Visitor, ContactForm
+from .models import (Profile,
+                     Skills,
+                     Projects,
+                     Visitor,
+                     ContactForm,
+                     BrowseHistory)
 from .serializers import (
     ProfileSerializer,
     SkillSerializer,
     ProjectSerializer,
     ContactFormSerializer,
-    VisitorSerializer)
+    VisitorSerializer,
+    BrowseHistorySerializer)
 
 
 class CustomBaseViewSet(viewsets.ModelViewSet):
@@ -78,3 +83,9 @@ class ContactFormCreateView(generics.CreateAPIView):
     """Generic view for new contact form."""
     queryset = ContactForm.objects.all()
     serializer_class = ContactFormSerializer
+
+
+class BrowseHistoryCreateView(generics.CreateAPIView):
+    """Generic view for new browse history"""
+    queryset = BrowseHistory.objects.all()
+    serializer_class = BrowseHistorySerializer

@@ -9,7 +9,8 @@ from core.models import (
     Projects,
     Visitor,
     Skills,
-    Contact
+    Contact,
+    BrowseHistory
 )
 from core.serializers import (
     ProfileSerializer,
@@ -19,6 +20,7 @@ PROFILE_URL = reverse('core:profile')
 VISITOR_POST_URL = reverse('core:visitors')
 CONTACT_FORM_POST_URL = reverse('core:contact-form')
 PROJECT_LIST_URL = reverse('core:projects-list')
+BROWSER_HISTORY_URL = reverse('core:browse-history')
 
 
 def create_visitor():
@@ -137,3 +139,26 @@ class ProfileApiTests(TestCase):
         self.assertEqual(response.status_code,
                          status.HTTP_405_METHOD_NOT_ALLOWED)
         self.assertNotEqual(project.title, payload['title'])
+
+    def test_post_browse_history_success(self):
+        """Test for creating new browser history record."""
+        response = self.client.post(VISITOR_POST_URL, {'lang': 'TR-tr'})
+        visitor = Visitor.objects.get(uid=response.data['uid'])
+
+        payload = {
+            'visitor': visitor.uid,
+            'action': 'Test record created'
+        }
+        response2 = self.client.post(BROWSER_HISTORY_URL, payload)
+        self.assertEqual(response2.status_code, status.HTTP_201_CREATED)
+
+        histories = BrowseHistory.objects.filter(
+            id=response2.data['id']
+            ).exists()
+        self.assertTrue(histories)
+
+        payload = {
+            'action': 'New action without visitor.'
+        }
+        response3 = self.client.post(BROWSER_HISTORY_URL, payload)
+        self.assertEqual(response3.status_code, status.HTTP_201_CREATED)

@@ -8,9 +8,7 @@ from django.conf import settings # noqa
 
 @receiver(post_save, sender=ContactForm)
 def new_message(sender, instance, created, **kwargs):
-    print("signal 1")
     if created:
-        print("Signal created")
         html_content = email_html_body(instance)
         mail = EmailMessage(
             "New Contact Form Message",
