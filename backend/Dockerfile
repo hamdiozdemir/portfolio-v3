@@ -17,9 +17,9 @@ ARG DEV=true
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip
 
-RUN apk add --update --no-cache jpeg-dev && \
+RUN apk add --update --no-cache postgresql-client jpeg-dev && \
     apk add --update --no-cache --virtual .tmp-build-deps \
-        build-base musl-dev zlib zlib-dev linux-headers
+        build-base postgresql-dev musl-dev zlib zlib-dev linux-headers
 
 RUN /py/bin/pip install -r requirements.txt && \
     if [ $DEV='true' ]; \
@@ -41,5 +41,3 @@ ENV PATH="/scripts:/py/bin:$PATH"
 USER hamdi
 
 CMD ["scripts/run.sh"]
-
-

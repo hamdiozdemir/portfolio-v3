@@ -10,11 +10,25 @@ services:
       context: ./backend
     ports:
       - "8000:8000"
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgres/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    container_name: postgres_db
+
   frontend:
     build:
       context: ./frontend
     volumes:
       - frontend:/app/build
+
   nginx:
     build:
       context: ./nginx
