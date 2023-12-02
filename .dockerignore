@@ -14,3 +14,6 @@ app/*/*/*/__pycahce__/
 .env/
 .venv/
 venv/
+
+# OTHERS
+commands.txt
