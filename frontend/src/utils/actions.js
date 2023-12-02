@@ -1,5 +1,6 @@
 import {userLoadedSuccess, userDelete} from '../redux/visitor';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 const rootUrl = 'http://127.0.0.1:8000/api';
 
@@ -40,12 +41,13 @@ export const send_message = (name, email, message, visitor) => async dispatch =>
 };
 
 
-export const add_browse_history = (action, visitor) => async dispatch => {
+export const add_browse_history = (action) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
         }
     };
+    const visitor = useSelector((state) => state.visitor.uid);
     const body = JSON.stringify({action, visitor});
 
     try {

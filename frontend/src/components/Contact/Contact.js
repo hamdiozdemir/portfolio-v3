@@ -19,7 +19,6 @@ import { add_browse_history, send_message } from '../../utils/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 import * as React from 'react';
-import visitor from '../../redux/visitor';
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });
@@ -72,7 +71,7 @@ const Contact = ({data, loading, error }) => {
         } else {
             setSnackBarOpen('error');
         };
-        dispatch(add_browse_history("Sent a new message with contact form", contactData.visitor));
+        dispatch(add_browse_history("Sent a new message with contact form"));
     };
 
       useEffect(() => {
