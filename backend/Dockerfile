@@ -7,6 +7,7 @@ COPY ./requirements.txt /tmp/requirements.txt
 COPY ./requirements.dev.txt /tmp/requirements.dev.txt
 COPY ./scripts /scripts
 COPY ./scripts/run.sh /scripts/run.sh
+RUN true
 COPY . /app
 
 WORKDIR /app
@@ -32,7 +33,7 @@ RUN addgroup -S owner-group && \
     adduser -S -G owner-group hamdi
 
 RUN mkdir -p /vol/web/media && \
-    mkdir -p /vol/wev/static
+    mkdir -p /vol/web/static
 
 RUN chown -R hamdi:owner-group /vol && \
     chmod -R 755 /vol
