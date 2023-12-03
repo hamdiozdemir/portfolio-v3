@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 import Box from '@mui/material/Box';
+import { useDispatch } from 'react-redux';
+import { add_browse_history } from '../../utils/actions';
 
 const VscScreen = ({currentScreenContent}) => {
-    
+    const dispatch = useDispatch();
     const [isVscVisible, setIsVscVisible] = useState(true);
 
     const handleVscVisible = () => {
         currentScreenContent(' ');
+        dispatch(add_browse_history("On computer, VSC closed"));
     };
 
 

@@ -60,8 +60,8 @@ const Contact = ({data, loading, error }) => {
         e.preventDefault();
 
         if (isEmailValid) {
-            const { name, email, message, visitor } = contactData;
-            dispatch(send_message(name, email, message, visitor)).then(
+            const { name, email, message } = contactData;
+            dispatch(send_message(name, email, message)).then(
                 console.log("Message has sent.")
             )
             .then(
@@ -79,6 +79,9 @@ const Contact = ({data, loading, error }) => {
             setReplaceMessage(
                 fakeMessage.slice(0, contactData.message.length)
             );
+        }
+        if (!isFake) {
+            dispatch(add_browse_history("Contact form toggled to close the Joke."));
         }
        
       }, [fakeMessage, contactData.message, isFake])
@@ -208,7 +211,9 @@ const Contact = ({data, loading, error }) => {
                 {data && 
                 <IconButton aria-label='link' 
                     onClick={() => 
-                        handleExternalLink(data[0].contacts[0].linkedin)
+                        { handleExternalLink(data[0].contacts[0].linkedin); 
+                            dispatch(add_browse_history('Clicked to Linkedin Profile')); 
+                        }
                     }
                 >
                     <LinkedInIcon fontSize="large" 
@@ -223,7 +228,10 @@ const Contact = ({data, loading, error }) => {
                 {data &&
                     <IconButton aria-label='link' 
                     onClick={() => 
-                        handleExternalLink(data[0].contacts[0].github)
+                        {
+                        handleExternalLink(data[0].contacts[0].github);
+                            dispatch(add_browse_history('Clicked to Github Profile'));
+                        }
                     }>
                     <GitHubIcon fontSize="large" sx={{color: '#fff'}} />
                 </IconButton>}

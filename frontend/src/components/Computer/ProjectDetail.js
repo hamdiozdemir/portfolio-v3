@@ -9,9 +9,11 @@ import LinkIcon from '@mui/icons-material/Link';
 //utils
 import { handleExternalLink } from "../../utils/utils";
 import useFetchData from "../../utils/useFetchData";
+import { useDispatch } from "react-redux";
+import { add_browse_history } from "../../utils/actions";
 
 const ProjectDetail = ({currentScreenContent, currentPage}) => {
-
+    const dispatch = useDispatch();
     const handleScreenContent = (content) => {
         currentScreenContent(content);
     };
@@ -51,11 +53,13 @@ const ProjectDetail = ({currentScreenContent, currentPage}) => {
                         {data.description}
                     </div>
                     <Stack direction="row" spacing={1} className="bottomUp-2">
-                        <IconButton aria-label="github" onClick={() => handleExternalLink(data.github)}>
+                        <IconButton aria-label="github" onClick={() => { handleExternalLink(data.github); dispatch(add_browse_history
+                        (`Redirected to ${data.github}`)); }}>
                             <GitHubIcon fontSize="large" sx={{color: '#00000'}}  />
                         </IconButton>
 
-                        {data.link && <IconButton aria-label="link" onClick={() => handleExternalLink(data.link)}>
+                        {data.link && <IconButton aria-label="link" 
+                            onClick={() => {handleExternalLink(data.link); dispatch(add_browse_history(`Redirected to ${data.link}`))}}>
                             <LinkIcon fontSize="large" sx={{color: '#000000'}}  />
                         </IconButton>}
 

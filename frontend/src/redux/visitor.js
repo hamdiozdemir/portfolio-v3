@@ -4,7 +4,8 @@ export const visitorSlice = createSlice({
     name: 'visitor',
     initialState: {
         uid: localStorage.getItem('visitor'),
-        lang: localStorage.getItem('lange')
+        lang: localStorage.getItem('lang'),
+        notice: localStorage.getItem('notice') ? true : false
     },
     reducers: {
         userLoadedSuccess: (state, action) => {
@@ -18,13 +19,17 @@ export const visitorSlice = createSlice({
             localStorage.removeItem('lang');
             state.uid = null;
             state.lang = null;
+        },
+        noticeUnderstood: (state, action) => {
+            localStorage.setItem('notice', true);
         }
     }
 });
 
 export const {
     userLoadedSuccess,
-    userDelete
+    userDelete,
+    noticeUnderstood
 } = visitorSlice.actions;
 
 export default visitorSlice.reducer;

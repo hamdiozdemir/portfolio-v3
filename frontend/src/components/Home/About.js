@@ -13,7 +13,8 @@ const About = ({data, loading, error }) => {
     }
 
     return (
-        <section className="home-container color-white">
+        <section className="home-container color-white mt20">
+            <h1 className="color-white">ABOUT</h1>
             {data && (
                 <div>
                 {data.map((item) => (

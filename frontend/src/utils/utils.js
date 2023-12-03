@@ -1,6 +1,7 @@
 
 import axios from 'axios';
 
+
 export const handleExternalLink = (url) => {
     window.open(url, "_blank");
 };

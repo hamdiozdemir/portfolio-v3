@@ -183,3 +183,18 @@
 }
 
 
+/* **************** NOTICE BOX ********************* */
+
+.noticeContainer{
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(36, 36, 36, 0.5);
+  min-height: 50px;
+  color: #fff;
+  padding: 10px;
+}

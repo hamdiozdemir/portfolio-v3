@@ -12,18 +12,23 @@ import PowerButton from './PowerButton';
 import Folder from './Folder';
 // components
 import ProjectDetail from './ProjectDetail';
+// utils
+import { useDispatch } from 'react-redux';
+import { add_browse_history } from '../../utils/actions';
 
 const Computer = () => {
-
+    const dispatch = useDispatch();
     const [isPowerOn, setIsPowerOn] = useState(null);
     const [currentScreenContent, setCurrentScreenContent] = useState('');
 
     const handleIsPowerOn = (data) => {
         setIsPowerOn(data);
+        dispatch(add_browse_history("Computer power on/off"));
     };
 
     const handleScreenContent = (content) => {
         setCurrentScreenContent(content);
+        dispatch(add_browse_history(`On computer, ${content} opened`));
     };
 
     return (

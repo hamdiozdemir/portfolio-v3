@@ -28,12 +28,15 @@ import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 //utils
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import clsx from 'clsx';
 // components
 import CustomButton from '../MyButtons/CustomButton';
+import { add_browse_history } from '../../utils/actions';
 
 const Hero = ({data, loading, error}) => {
 
+    const dispatch = useDispatch();
     const [frontendActive, setFrontendActive] = useState(false);
     const [backendActive, setBackendActive] = useState(false);
 
@@ -60,10 +63,12 @@ const Hero = ({data, loading, error}) => {
 
     const handleFrontendActive = () => {
         setFrontendActive(!frontendActive);
+        dispatch(add_browse_history("Frontend button clicked"));
       };
 
     const handleBackendActive = () => {
         setBackendActive(!backendActive);
+        dispatch(add_browse_history("Backend button clicked"));
     };
 
     const handleFSActive = () => {
@@ -78,18 +83,19 @@ const Hero = ({data, loading, error}) => {
             setFrontendActive(false);
             setBackendActive(false);
         }
+        dispatch(add_browse_history("FullStack button clicked"));
     };
 
     return (
-        <>
-        <header id="shop-header">
-            <nav id="shop-nav">   
-                <CustomButton text={'HELLO'} />
-            
-            </nav>
-        </header>
+        <section className='hero-root'>
 
-        <main id="shop-main" className="back-img">
+        <main id="shop-main" >
+            <header id="shop-header">
+                <nav id="shop-nav">   
+                    <CustomButton text={'HELLO'} />
+                
+                </nav>
+            </header>
             <div className="layer-container">
 
                     <Box sx={{
@@ -168,7 +174,7 @@ const Hero = ({data, loading, error}) => {
                             Backend
                         </div>
                         <div className={`full-stack ${backendActive && frontendActive ? 'checked' : ''}`} onClick={handleFSActive}>
-                            Full Stack Developer
+                            Full Stack
                         </div>
                     </Box>
   
@@ -178,7 +184,7 @@ const Hero = ({data, loading, error}) => {
         </main>
         
         
-        </>
+        </section>
 
     );
 }

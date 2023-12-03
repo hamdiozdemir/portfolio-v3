@@ -158,6 +158,7 @@ class ProfileApiTests(TestCase):
         self.assertTrue(histories)
 
         payload = {
+            'visitor': "",
             'action': 'New action without visitor.'
         }
         response3 = self.client.post(BROWSER_HISTORY_URL, payload)

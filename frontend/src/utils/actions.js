@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 
 const rootUrl = 'http://127.0.0.1:8000/api';
+const visitor = localStorage.getItem('visitor') ? localStorage.getItem('visitor') : null;
 
 export const new_user = (lang) => async dispatch => {
     const config = {
@@ -24,12 +25,13 @@ export const new_user = (lang) => async dispatch => {
 };
 
 
-export const send_message = (name, email, message, visitor) => async dispatch => {
+export const send_message = (name, email, message) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
         }
     };
+    const visitor = localStorage.getItem('visitor') ? localStorage.getItem('visitor') : null;
     const body = JSON.stringify({name, email, message, visitor});
 
     try {
@@ -47,7 +49,8 @@ export const add_browse_history = (action) => async dispatch => {
             'Content-Type': 'application/json'
         }
     };
-    const visitor = useSelector((state) => state.visitor.uid);
+
+    const visitor = localStorage.getItem('visitor') ? localStorage.getItem('visitor') : null;
     const body = JSON.stringify({action, visitor});
 
     try {

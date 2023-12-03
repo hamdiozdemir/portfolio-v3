@@ -8,19 +8,18 @@ import pythonLogo from "../../assests/pythonLogo.png";
 import { handleExternalLink } from "../../utils/utils";
 import useFetchData from "../../utils/useFetchData";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { add_browse_history } from "../../utils/actions";
 
 const Folder = ({currentScreenContent}) => {
-
+    const dispacth = useDispatch();
     const {data, loading, error } = useFetchData('projects');
     
-    const handleScreenContent = (content) => {
+    const handleScreenContent = (content, title) => {
         currentScreenContent(content);
+        dispacth(add_browse_history(`On computer, project: ${title} opened`));
     };
     const [currentProject, setCurrentProject] = useState('');
-    const handleCurrentProjectClick = (projectTitle, projectId) => {
-        setCurrentProject(projectTitle);
-        handleExternalLink(`/projects/${projectId}`);
-    };
 
     return (
         <Box
@@ -76,7 +75,7 @@ const Folder = ({currentScreenContent}) => {
                 {data && 
                     data.map((item) => (
                         <div className="project-card-container" key={item.id} 
-                        onClick={() => handleScreenContent(`project${item.id}`)}
+                        onClick={() => handleScreenContent(`project${item.id}`, item.title)}
                         >
                             <div className="project-icon-container">
                                 <img src={pythonLogo} alt="" className="pythonLogo" />

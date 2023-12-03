@@ -91,7 +91,8 @@ class ContactFormSerializer(serializers.ModelSerializer):
 
 class BrowseHistorySerializer(serializers.ModelSerializer):
     """Serializer for BrowseHistory Model."""
-    visitor = serializers.CharField(max_length=255, required=False)
+    visitor = serializers.CharField(max_length=255,
+                                    required=False, allow_null=True)
 
     class Meta:
         model = BrowseHistory
