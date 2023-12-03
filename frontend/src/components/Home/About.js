@@ -1,11 +1,13 @@
 import { Typography } from "@mui/material";
-
+import CircularProgress from '@mui/material/CircularProgress';
 const About = ({data, loading, error }) => {
 
 
     if (loading) {
         return <p>
-            LOADING ......
+            <div className="flex-column-center">
+                <CircularProgress color="inherit" />
+            </div>
         </p>
     }
     if (error) {

@@ -18,6 +18,22 @@ from .serializers import (
     VisitorSerializer,
     BrowseHistorySerializer)
 
+from drf_spectacular.utils import (
+    extend_schema_view,
+    extend_schema,
+    OpenApiParameter,
+    OpenApiTypes,
+)
+import uuid
+
+
+def is_valid_uuid(val):
+    try:
+        uuid.UUID(str(val))
+        return True
+    except ValueError:
+        return False
+
 
 class CustomBaseViewSet(viewsets.ModelViewSet):
     """Custom base viewset for disabling other methods than RETRIEVE."""
@@ -85,7 +101,25 @@ class ContactFormCreateView(generics.CreateAPIView):
     serializer_class = ContactFormSerializer
 
 
-class BrowseHistoryCreateView(generics.CreateAPIView):
+@extend_schema_view(
+    get=extend_schema(
+        parameters=[
+            OpenApiParameter(
+                'visitor',
+                OpenApiTypes.STR,
+                description='Visitor UID required.'
+            )
+        ]
+    )
+)
+class BrowseHistoryListCreateView(generics.ListCreateAPIView):
     """Generic view for new browse history"""
     queryset = BrowseHistory.objects.all()
     serializer_class = BrowseHistorySerializer
+
+    def get_queryset(self):
+        visitor_uid = self.request.query_params.get('visitor', None)
+        if not visitor_uid and not is_valid_uuid(visitor_uid):
+            return None
+        queryset = BrowseHistory.objects.filter(visitor__uid=visitor_uid).order_by('-timestamp')
+        return queryset

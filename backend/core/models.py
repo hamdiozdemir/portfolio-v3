@@ -57,7 +57,7 @@ class Projects(models.Model):
     github = models.CharField(max_length=255, blank=True, null=True)
     link = models.CharField(max_length=255, blank=True, null=True)
     skills = models.ManyToManyField(Skills, blank=True)
-    images = models.ManyToManyField(Image, null=True)
+    images = models.ManyToManyField(Image, blank=True)
 
     def __str__(self):
         return self.title
@@ -104,3 +104,4 @@ class BrowseHistory(models.Model):
                                 on_delete=models.SET_NULL)
     timestamp = models.DateTimeField(auto_now_add=True)
     action = models.CharField(max_length=255)
+    type = models.CharField(max_length=50, default='button')

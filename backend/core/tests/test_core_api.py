@@ -163,3 +163,16 @@ class ProfileApiTests(TestCase):
         }
         response3 = self.client.post(BROWSER_HISTORY_URL, payload)
         self.assertEqual(response3.status_code, status.HTTP_201_CREATED)
+
+    def test_browse_history_get_success(self):
+        """Test for getting browse history successfuly."""
+        visitor = Visitor.objects.create(lang='tr-TR')
+        BrowseHistory.objects.create(visitor=visitor, action="Action1")
+        BrowseHistory.objects.create(visitor=visitor, action="Action2")
+        BrowseHistory.objects.create(action='Excluded action')
+
+        payload = {'visitor': visitor.uid}
+        response = self.client.get(BROWSER_HISTORY_URL, payload)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 2)

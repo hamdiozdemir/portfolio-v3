@@ -1,9 +1,7 @@
-import {userLoadedSuccess, userDelete} from '../redux/visitor';
+import { userLoadedSuccess } from '../redux/visitor';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
 
 const rootUrl = 'http://127.0.0.1:8000/api';
-const visitor = localStorage.getItem('visitor') ? localStorage.getItem('visitor') : null;
 
 export const new_user = (lang) => async dispatch => {
     const config = {
@@ -36,14 +34,14 @@ export const send_message = (name, email, message) => async dispatch => {
 
     try {
         const response = await axios.post(`${rootUrl}/contact-form/`, body, config);
-        console.log(body);
+        
     } catch (err) {
         console.log(err);
     }
 };
 
 
-export const add_browse_history = (action) => async dispatch => {
+export const add_browse_history = (action, type) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
@@ -51,7 +49,7 @@ export const add_browse_history = (action) => async dispatch => {
     };
 
     const visitor = localStorage.getItem('visitor') ? localStorage.getItem('visitor') : null;
-    const body = JSON.stringify({action, visitor});
+    const body = JSON.stringify({action, visitor ,type});
 
     try {
         const response = await axios.post(`${rootUrl}/browse-history/`, body, config);

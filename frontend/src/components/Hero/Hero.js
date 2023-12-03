@@ -91,8 +91,10 @@ const Hero = ({data, loading, error}) => {
 
         <main id="shop-main" >
             <header id="shop-header">
-                <nav id="shop-nav">   
-                    <CustomButton text={'HELLO'} />
+                <nav id="shop-nav">
+                    <Box sx={{ml: 'auto'}}>
+                        <CustomButton text={'Browse History'} url={'/browse-history'} />
+                    </Box>   
                 
                 </nav>
             </header>

@@ -20,7 +20,7 @@ const ProjectDetail = ({currentScreenContent, currentPage}) => {
     const id = currentPage.slice(7);
     console.log(currentPage);
     const {data, loading, error } = useFetchData(`projects/${id}/`);
-    console.log(data);
+
 
     return (
         <>
@@ -54,12 +54,12 @@ const ProjectDetail = ({currentScreenContent, currentPage}) => {
                     </div>
                     <Stack direction="row" spacing={1} className="bottomUp-2">
                         <IconButton aria-label="github" onClick={() => { handleExternalLink(data.github); dispatch(add_browse_history
-                        (`Redirected to ${data.github}`)); }}>
+                        (`Redirected to ${data.github}`, "link")); }}>
                             <GitHubIcon fontSize="large" sx={{color: '#00000'}}  />
                         </IconButton>
 
                         {data.link && <IconButton aria-label="link" 
-                            onClick={() => {handleExternalLink(data.link); dispatch(add_browse_history(`Redirected to ${data.link}`))}}>
+                            onClick={() => {handleExternalLink(data.link); dispatch(add_browse_history(`Redirected to ${data.link}`, "link"))}}>
                             <LinkIcon fontSize="large" sx={{color: '#000000'}}  />
                         </IconButton>}
 

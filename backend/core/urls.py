@@ -9,7 +9,7 @@ from .views import (
     ProjectView,
     VisitorView,
     ContactFormCreateView,
-    BrowseHistoryCreateView)
+    BrowseHistoryListCreateView)
 
 app_name = 'core'
 
@@ -23,5 +23,5 @@ urlpatterns = [
     path('contact-form/',
          ContactFormCreateView.as_view(), name='contact-form'),
     path('browse-history/',
-         BrowseHistoryCreateView.as_view(), name='browse-history')
+         BrowseHistoryListCreateView.as_view(), name='browse-history')
 ]

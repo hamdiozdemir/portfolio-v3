@@ -15,7 +15,7 @@ const Notice = () => {
     return (
         <div className={noticeContainer}>
             <div>! Important Notice</div>
-            <div>Hi. I am just trying to track some actions that visitors have made in this website anonymously.</div>
+            <div>Hi. I am just trying to track some actions that visitors have made in this website anonymously. You may check your browse history.</div>
             <Button variant="contained" 
                 onClick={() => { 
                     dispacth(noticeUnderstood());

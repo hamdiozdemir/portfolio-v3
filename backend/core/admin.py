@@ -23,6 +23,7 @@ class ContactFormAdmin(admin.ModelAdmin):
 
 class BrowseHistoryAdmin(admin.ModelAdmin):
     list_display = ["id", "visitor", "action", "timestamp"]
+    list_filter = ["visitor"]
 
 
 admin.site.register(Profile)

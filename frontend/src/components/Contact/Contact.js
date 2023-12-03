@@ -71,7 +71,7 @@ const Contact = ({data, loading, error }) => {
         } else {
             setSnackBarOpen('error');
         };
-        dispatch(add_browse_history("Sent a new message with contact form"));
+        dispatch(add_browse_history("Sent a new message with contact form", "message"));
     };
 
       useEffect(() => {
@@ -81,7 +81,7 @@ const Contact = ({data, loading, error }) => {
             );
         }
         if (!isFake) {
-            dispatch(add_browse_history("Contact form toggled to close the Joke."));
+            dispatch(add_browse_history("Contact form toggled to close the Joke.", "toggle"));
         }
        
       }, [fakeMessage, contactData.message, isFake])
@@ -212,7 +212,7 @@ const Contact = ({data, loading, error }) => {
                 <IconButton aria-label='link' 
                     onClick={() => 
                         { handleExternalLink(data[0].contacts[0].linkedin); 
-                            dispatch(add_browse_history('Clicked to Linkedin Profile')); 
+                            dispatch(add_browse_history('Clicked to Linkedin Profile', "link")); 
                         }
                     }
                 >
@@ -230,7 +230,7 @@ const Contact = ({data, loading, error }) => {
                     onClick={() => 
                         {
                         handleExternalLink(data[0].contacts[0].github);
-                            dispatch(add_browse_history('Clicked to Github Profile'));
+                            dispatch(add_browse_history('Clicked to Github Profile', "link"));
                         }
                     }>
                     <GitHubIcon fontSize="large" sx={{color: '#fff'}} />

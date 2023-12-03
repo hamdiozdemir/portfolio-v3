@@ -115,3 +115,12 @@ class BrowseHistorySerializer(serializers.ModelSerializer):
             return qs.first()
 
         return None
+
+    def to_representation(self, instance):
+        """
+        Exclude 'visitor' field from serialized output for requests.
+        """
+        data = super().to_representation(instance)
+        data.pop('visitor', None)
+
+        return data

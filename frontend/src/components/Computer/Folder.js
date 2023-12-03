@@ -5,7 +5,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import pythonLogo from "../../assests/pythonLogo.png";
 // utils
-import { handleExternalLink } from "../../utils/utils";
 import useFetchData from "../../utils/useFetchData";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -17,7 +16,7 @@ const Folder = ({currentScreenContent}) => {
     
     const handleScreenContent = (content, title) => {
         currentScreenContent(content);
-        dispacth(add_browse_history(`On computer, project: ${title} opened`));
+        dispacth(add_browse_history(`On computer, project: ${title} opened`, "computer"));
     };
     const [currentProject, setCurrentProject] = useState('');
 

@@ -23,12 +23,12 @@ const Computer = () => {
 
     const handleIsPowerOn = (data) => {
         setIsPowerOn(data);
-        dispatch(add_browse_history("Computer power on/off"));
+        dispatch(add_browse_history("Computer power on/off", "computer"));
     };
 
     const handleScreenContent = (content) => {
         setCurrentScreenContent(content);
-        dispatch(add_browse_history(`On computer, ${content} opened`));
+        dispatch(add_browse_history(`On computer, ${content} opened`, "computer"));
     };
 
     return (

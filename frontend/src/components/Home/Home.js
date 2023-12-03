@@ -6,7 +6,7 @@ import About from './About';
 import Notice from '../Notice/Notice';
 // utils
 import useFetchData from '../../utils/useFetchData';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { new_user } from '../../utils/actions';
@@ -41,6 +41,7 @@ const Home = () => {
           <Contact data={data} loading={loading} error={error} />
 
           { !notice && <Notice /> }
+
         </>
     );
 }
