@@ -12,9 +12,10 @@ LABEL maintainer="hamdiozdemir.tech"
 
 RUN mkdir -p /vol/web/static && \
     chmod 755 /vol/web/static && \
+    chmod -R 755 /var/www/frontend/ && \
     touch /etc/nginx/conf.d/default.conf && \
-    chown nginx:nginx /etc/nginx/conf.d/default.conf && \
-    # chmod +x /run.sh
+    chown nginx:nginx /etc/nginx/conf.d/default.conf
+
 VOLUME /vol/static
 
 USER nginx
