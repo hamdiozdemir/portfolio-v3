@@ -28,7 +28,6 @@ services:
       context: ./frontend
     volumes:
       - frontend:/app/build
-    command: npm start
     depends_on:
       - backend
 
