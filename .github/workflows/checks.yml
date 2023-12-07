@@ -16,11 +16,9 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v2
             - name: Create .env file
-              run: |
-                touch .env
-                echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
-                echo EMAIL_USER=${{ secrets.EMAIL_USER }} >> .env
-                echo EMAIL_PASS=${{ secrets.EMAIL_PASS }} >> .env
+              run: cp .env.sample .env
+            - name: Build
+              run: docker-compose up --build -d
             - name: Test
               run: docker-compose run --rm backend sh -c "python manage.py test"
             - name: Linting
