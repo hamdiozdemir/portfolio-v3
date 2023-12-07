@@ -21,12 +21,15 @@ jobs:
 
             - name: Install Dependencies
               run: |
-                pip install -r requirements.txt
-                pip install -r requirements.dev.txt
+                pip install -r backend/requirements.txt
+                pip install -r backend/requirements.dev.txt
 
             - name: Linting Check
-              run: flake8
+              run: |
+                cd backend
+                flake8
 
             - name: Backend Test
               run: |
+                cd backend
                 python manage.py test
