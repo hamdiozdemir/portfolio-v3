@@ -121,5 +121,6 @@ class BrowseHistoryListCreateView(generics.ListCreateAPIView):
         visitor_uid = self.request.query_params.get('visitor', None)
         if not visitor_uid and not is_valid_uuid(visitor_uid):
             return None
-        queryset = BrowseHistory.objects.filter(visitor__uid=visitor_uid).order_by('-timestamp')
+        queryset = BrowseHistory.objects.filter(
+            visitor__uid=visitor_uid).order_by('-timestamp')
         return queryset
