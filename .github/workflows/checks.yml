@@ -7,6 +7,19 @@ jobs:
     test-lint:
         name: Backend Tests and Lint
         runs-on: ubuntu-20.04
+
+        services:
+          postgres:
+            image: postgres
+            env:
+              POSTGRES_PASSWORD: gonnachange
+              POSTGRES_USER: rootuser
+              POSTGRES_DB: dbname
+            options: >-
+              --health-cmd pg_isready
+              --health-interval 10s
+              --health-timeout 5s
+              --health-retries 5
         steps:
             - name: Checkout
               uses: actions/checkout@v4
