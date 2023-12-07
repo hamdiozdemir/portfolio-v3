@@ -36,7 +36,8 @@ RUN mkdir -p /vol/web/media && \
     mkdir -p /vol/web/static
 
 RUN chown -R hamdi:owner-group /vol && \
-    chmod -R 755 /vol
+    chmod -R 755 /vol && \
+    chmod -R +x /scripts
 
 ENV PATH="/scripts:/py/bin:$PATH"
 USER hamdi
