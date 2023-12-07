@@ -107,41 +107,41 @@ const Hero = ({data, loading, error}) => {
                     }}
                     className='sub-line line1'
                     >
-                        <img src={html} alt="" className={frontendAnimationClass} />
-                        <img src={aws3} alt="" className={backendAnimationClass} />
-                        <img src={empty2} alt="" className={emptyAnimationClass} />
-                        <img src={database} alt="" className={backendAnimationClass}  />
-                        <img src={fastapi} alt="" className={backendAnimationClass}  />
-                        <img src={testing} alt="" className={emptyAnimationClass}  />
-                        <img src={reactjs} alt="" className={frontendAnimationClass} />
-                        <img src={flask} alt="" className={backendAnimationClass}  />
-                        <img src={empty1} alt="" className={emptyAnimationClass} />
-                        <img src={restapi} alt="" className={backendAnimationClass} />
+                        <div className='hexagon-container1'><img src={html} alt="" className={frontendAnimationClass} /> </div>
+                        <div className='hexagon-container1'><img src={aws3} alt="" className={backendAnimationClass} /> </div>
+                        <div className='hexagon-container1'><img src={empty2} alt="" className={emptyAnimationClass} /> </div>
+                        <div className='hexagon-container1'><img src={database} alt="" className={backendAnimationClass}  /> </div>
+                        <div className='hexagon-container1'><img src={fastapi} alt="" className={backendAnimationClass}  /> </div>
+                        <div className='hexagon-container1'><img src={testing} alt="" className={emptyAnimationClass}  /> </div>
+                        <div className='hexagon-container1'><img src={reactjs} alt="" className={frontendAnimationClass} /> </div>
+                        <div className='hexagon-container1'><img src={flask} alt="" className={backendAnimationClass}  /> </div>
+                        <div className='hexagon-container1'><img src={empty1} alt="" className={emptyAnimationClass} /> </div>
+                        <div className='hexagon-container1'><img src={restapi} alt="" className={backendAnimationClass} /> </div>
                     </Box>
 
                     <Box
                     className='sub-line line3'
                     >
-                        <img src={empty4} alt="" className={emptyAnimationClass} />
-                        <img src={sqla} alt="" className={backendAnimationClass}  />
-                        <img src={css} alt="" className={frontendAnimationClass} />
-                        <img src={rabbitmq} alt="" className={backendAnimationClass}  />
-                        <img src={docker} alt="" className={backendAnimationClass}  />
-                        <img src={git} alt="" className={`${emptyAnimationClass} fs` } />
-                        <img src={pandas} alt="" className={backendAnimationClass}  />
-                        <img src={empty3} alt="" className={emptyAnimationClass} />
-                        <img src={django} alt="" className={backendAnimationClass}  />
+                        <div className='hexagon-container1'><img src={empty4} alt="" className={emptyAnimationClass} /> </div>
+                        <div className='hexagon-container1'><img src={sqla} alt="" className={backendAnimationClass}  /></div>
+                        <div className='hexagon-container1'><img src={css} alt="" className={frontendAnimationClass} /></div>
+                        <div className='hexagon-container1'><img src={rabbitmq} alt="" className={backendAnimationClass}  /></div>
+                        <div className='hexagon-container1'><img src={docker} alt="" className={backendAnimationClass}  /></div>
+                        <div className='hexagon-container1'><img src={git} alt="" className={`${emptyAnimationClass} fs` } /></div>
+                        <div className='hexagon-container1'><img src={pandas} alt="" className={backendAnimationClass}  /></div>
+                        <div className='hexagon-container1'><img src={empty3} alt="" className={emptyAnimationClass} /></div>
+                        <div className='hexagon-container1'><img src={django} alt="" className={backendAnimationClass}  /></div>
                         
                     </Box>
                     <Box 
                     className='sub-line line5'
                     >
-                        <img src={postgres} alt="" className={backendAnimationClass}  />
-                        <img src={cloud} alt="" className={emptyAnimationClass} />
-                        <img src={celery} alt="" className={backendAnimationClass}  />
-                        <img src={javascript} alt="" className={frontendAnimationClass} />
-                        <img src={python} alt="" className={backendAnimationClass}  />
-                        <img src={empty2} alt="" className={emptyAnimationClass}  />
+                       <div className='hexagon-container1'> <img src={postgres} alt="" className={backendAnimationClass}  /> </div>
+                       <div className='hexagon-container1'> <img src={cloud} alt="" className={emptyAnimationClass} /></div>
+                       <div className='hexagon-container1'> <img src={celery} alt="" className={backendAnimationClass}  /></div>
+                       <div className='hexagon-container1'> <img src={javascript} alt="" className={frontendAnimationClass} /> </div>
+                       <div className='hexagon-container1'> <img src={python} alt="" className={backendAnimationClass}  /></div>
+                       <div className='hexagon-container1'> <img src={empty2} alt="" className={emptyAnimationClass}  /></div>
                     </Box>
 
                 <Box

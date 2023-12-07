@@ -80,9 +80,7 @@ const Contact = ({data, loading, error }) => {
                 fakeMessage.slice(0, contactData.message.length)
             );
         }
-        if (!isFake) {
-            dispatch(add_browse_history("Contact form toggled to close the Joke.", "toggle"));
-        }
+        console.log("Yenilendi.....");
        
       }, [fakeMessage, contactData.message, isFake])
 
@@ -165,7 +163,7 @@ const Contact = ({data, loading, error }) => {
                     control={
                     <Switch
                         checked={isFake}
-                        onChange={() => setIsFake(!isFake)}
+                        onChange={ () => {setIsFake(!isFake); dispatch(add_browse_history("Contact form toggled to close the Joke.", "toggle"));} }
                         name="isFake"
                         color="primary"
                     />
