@@ -8,18 +8,25 @@ jobs:
         name: Backend Tests and Lint
         runs-on: ubuntu-20.04
         steps:
-            - name: Login to DockerHub
-              uses: docker/login-action@v1
-              with:
-                username: ${{ secrets.DOCKERHUB_USER }}
-                password: ${{ secrets.DOCKERHUB_TOKEN }}
             - name: Checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
+
             - name: Create .env file
               run: cp .env.sample .env
-            - name: Build
-              run: docker-compose up --build -d
-            - name: Test
-              run: docker-compose run --rm backend sh -c "python manage.py test"
-            - name: Linting
-              run: docker-compose run --rm backend sh -c "flake8"
+
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                python-version: '3.11'
+
+            - name: Install Dependencies
+              run: |
+                pip install -r requirements.txt
+                pip install -r requirements.dev.txt
+
+            - name: Linting Check
+              run: flake8
+
+            - name: Backend Test
+              run: |
+                python manage.py test
