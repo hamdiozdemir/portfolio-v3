@@ -80,7 +80,7 @@ const Contact = ({data, loading, error }) => {
                 fakeMessage.slice(0, contactData.message.length)
             );
         }
-        console.log("Yenilendi.....");
+
        
       }, [fakeMessage, contactData.message, isFake])
 

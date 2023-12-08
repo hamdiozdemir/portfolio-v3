@@ -1,9 +1,10 @@
 // useFetchData.js
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { getRootUrl } from './utils';
 
 const useFetchData = (url) => {
-  const rootUrl = 'http://127.0.0.1:8000/api/';
+  const rootUrl = getRootUrl('http://localhost');
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
