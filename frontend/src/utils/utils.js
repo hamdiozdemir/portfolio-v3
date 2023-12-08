@@ -30,8 +30,8 @@ export const getRootUrl = (url) => {
     const dev = false;
 
     if (dev) {
-        return 'http://127.0.0.1:8000/api'
+        return `${url}:8000/api`
     } else {
-        return `${url}:8000/api` 
+        return 'http://138.197.178.46:8000/api'
     }
 };
