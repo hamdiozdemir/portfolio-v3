@@ -33,7 +33,7 @@ ALLOWED_HOSTS = [
 ALLOWED_HOSTS.extend(
     filter(
         None,
-        config('DJANGO_ALLOWED_HOSTS').split('')
+        config('DJANGO_ALLOWED_HOSTS').split(',')
     )
 )
 
