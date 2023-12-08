@@ -19,7 +19,7 @@ const ProjectDetail = ({currentScreenContent, currentPage}) => {
     };
     const id = currentPage.slice(7);
     console.log(currentPage);
-    const {data, loading, error } = useFetchData(`projects/${id}/`);
+    const {data, loading, error } = useFetchData(`/projects/${id}/`);
 
 
     return (

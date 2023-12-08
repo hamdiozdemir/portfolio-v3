@@ -12,7 +12,7 @@ import { add_browse_history } from "../../utils/actions";
 
 const Folder = ({currentScreenContent}) => {
     const dispacth = useDispatch();
-    const {data, loading, error } = useFetchData('projects');
+    const {data, loading, error } = useFetchData('/projects');
     
     const handleScreenContent = (content, title) => {
         currentScreenContent(content);

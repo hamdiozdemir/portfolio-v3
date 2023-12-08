@@ -15,7 +15,7 @@ const BrowseHistory = () => {
 
     const dispatch = useDispatch();
     const visitor = localStorage.getItem('visitor');
-    const { data, loading, error } = useFetchData(`browse-history?visitor=${visitor}`);
+    const { data, loading, error } = useFetchData(`/browse-history?visitor=${visitor}`);
     
     useEffect(() => {
         dispatch(add_browse_history("Browse history viewed.", "view"));

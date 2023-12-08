@@ -27,7 +27,7 @@ const Home = () => {
     }, [dispatch, visitor]);
   
 
-    const {data, loading, error } = useFetchData('profile');
+    const {data, loading, error } = useFetchData('/profile');
 
     return (
         <>
