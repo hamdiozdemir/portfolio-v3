@@ -37,9 +37,9 @@ RUN mkdir -p /vol/web/media && \
 
 RUN chown -R hamdi:owner-group /vol && \
     chmod -R 755 /vol && \
-    chmod -R +x /scripts/run.sh
+    chmod -R +x /scripts
 
 ENV PATH="/scripts:/py/bin:$PATH"
 USER hamdi
 
-CMD ["scripts/run.sh"]
+CMD ["run.sh"]
