@@ -100,7 +100,7 @@ if not DEBUG:
             'NAME': config("DB_NAME"),
             'USER': config("DB_USER"),
             'PASSWORD': config("DB_PASS"),
-            'HOST': 'db',
+            'HOST': os.getenv('DB_HOST'),
             'PORT': 5432
         }
     }
