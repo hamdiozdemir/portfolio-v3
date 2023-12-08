@@ -12,7 +12,6 @@ jobs:
           postgres:
             image: postgres
             env:
-              POSTGRES_HOST: db
               POSTGRES_PASSWORD: gonnachange
               POSTGRES_USER: rootuser
               POSTGRES_DB: dbname
