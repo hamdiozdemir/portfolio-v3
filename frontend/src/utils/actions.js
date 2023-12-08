@@ -1,7 +1,9 @@
 import { userLoadedSuccess } from '../redux/visitor';
 import axios from 'axios';
 
-const rootUrl = 'http://127.0.0.1:8000/api';
+import { getRootUrl } from './utils';
+
+const rootUrl = getRootUrl('http://localhost');
 
 export const new_user = (lang) => async dispatch => {
     const config = {

@@ -4,11 +4,13 @@ const About = ({data, loading, error }) => {
 
 
     if (loading) {
-        return <p>
+        
+        <div>
             <div className="flex-column-center">
                 <CircularProgress color="inherit" />
             </div>
-        </p>
+        </div>
+        
     }
     if (error) {
         <p> ERRORR ......</p>

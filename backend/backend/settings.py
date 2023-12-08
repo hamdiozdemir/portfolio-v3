@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = True if bool(int(config("DEBUG"))) else False
 
 ALLOWED_HOSTS = [
-
+ "http://localhost"
 ]
 ALLOWED_HOSTS.extend(
     filter(
