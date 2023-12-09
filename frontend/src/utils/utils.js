@@ -32,6 +32,6 @@ export const getRootUrl = (url) => {
     if (dev) {
         return `${url}:8000/api`
     } else {
-        return 'http://138.197.178.46:8000/api'
+        return 'http://hamdiozdemir.tech:8000/api'
     }
 };
