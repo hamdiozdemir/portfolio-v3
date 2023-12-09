@@ -175,8 +175,14 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost",
     "http://127.0.0.1",
     "http://0.0.0.0",
-    config('HOST_URL'),
+    
 ]
+CORS_ALLOWED_ORIGINS.extend(
+    filter(
+        None,
+        config('HOST_URLS').split(',')
+    )
+)
 
 CORS_ALLOW_CREDENTIALS = True
 
