@@ -2,8 +2,6 @@ version: '3.9'
 
 services:
   backend:
-    volumes:
-      - dev-static-data:/vol/web
     env_file:
       - .env
     build:
@@ -39,19 +37,15 @@ services:
       - backend
 
   nginx:
-    # build:
-    #   context: ./nginx
     image: nginx:latest
     ports:
       - 80:8080
     restart: always
     volumes:
       - ./nginx/nginx-setup.conf:/etc/nginx/conf.d/default.conf:ro
-      - dev-static-data:/vol/web
       - frontend:/var/www/frontend
     depends_on:
       - backend
       - frontend
 volumes:
-  dev-static-data:
   frontend:
